@@ -5,7 +5,7 @@
 roleに共通の項目を記載して  
 各ホストはroleのjsonを見に行くようにする
 
-`/root/chef/json/hoge-web01.json`  
+`/root/chef/json/hoge-web.json`  
 
 ```json
 {
