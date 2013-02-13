@@ -9,7 +9,7 @@ roleに共通の項目を記載して
 
 ```json
 {
-  "name": "hoge",
+  "name": "hoge-web",
   "default_attributes": {
     "nginx": { "version" : "1.2.3" }
   },
