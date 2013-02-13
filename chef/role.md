@@ -18,7 +18,7 @@ roleに共通の項目を記載して
   "description": "",
   "chef_type": "role",
   "run_list": [
-    "recipe[nginx]", recipe[fluent-agent-lite]"
+    "recipe[nginx]", "recipe[fluent-agent-lite]"
   ]
 }
 ```
