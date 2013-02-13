@@ -63,6 +63,12 @@ EIPを振るとDNSは振られなく鳴る
 9. *resize2fs /dev/xvda1*  
   
 ---
+
+# ELB
+
+直感でできる
+
+---
   
 # S3  
   
@@ -71,7 +77,7 @@ git clone git://github.com/s3tools/s3cmd.git
   
 ### EIP  
   
-- EC3落ちたら切り離される  
+- EC2をTerminatしない限り関連付けからは外れなくなる
 - EIPをallocateするとDNSが使えなくなる  
   
 切り替えられるっぽい***  
@@ -87,18 +93,7 @@ RDSはMulti-AZ機能を保持している
 
  - CIDR = 許可IP  
   
-VPCのサブネットを2つのAZに確保しておく    
+VPCのサブネットを2つのAZに確保しておく  
 (DB Subnet Groupの仕様上)  
   
-  
-1. EC2のInstance作成時にEC2かVPCか選択できるのでVPCを選択  
-  
-EIP -> VPC  
-  
-Internet Gatewayつくる  
-  
-1. EIP -> VPC dekinai  
-  
-  
-  
-
+先にSubnet Groupつくっておいた方が良い
