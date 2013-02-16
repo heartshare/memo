@@ -36,6 +36,10 @@ EIPを振るとDNSは振られなく鳴る
   
 # EC2  
   
+### パブリックサブネットIP
+  
+あとで変えられない
+  
 ### エフェメラルディスク  
 
  [インスタンスサイズ毎の割り振り一覧](http://macedoniashooter.blogspot.jp/2012/09/aws.html)
@@ -89,7 +93,12 @@ RDSはMulti-AZ機能を保持している
   
 # RDS
   
+### Provisioned IOPSは後付できない
+
 ### VPC内でRDS  
+  
+ - Create DB Subnet Groupサブネットグループの追加(AZを2つ以上指定)
+ - Security Group 許可IPの追加
 
  - CIDR = 許可IP  
   

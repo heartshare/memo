@@ -1,5 +1,11 @@
 # 忘れがちなコマンドたち
 
+## フォーマット
+
+```bash
+$ fdisk /dev/hoge
+$ mkfs.ext4 /dev/hoge
+```
 
 ## surround.vim
 
