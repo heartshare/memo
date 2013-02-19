@@ -23,9 +23,9 @@ $ mysql
 mysql> CREATE DATABASE zabbix_proxy DEFAULT CHARACTER SET utf8;  
 mysql> GRANT ALL PRIVILEGES ON zabbix_proxy.* TO zabbix_proxy@localhost IDENTIFIED BY 'PASSWORD';  
   
-$ mysql -u zabbix_proxy -h HOST zabbix_proxy -p PASSWORD < /usr/share/doc/zabbix-proxy-mysql-1.8.16/create/schema/mysql.sql  
-$ mysql -u zabbix_proxy -h HOST zabbix_proxy -p PASSWORD < /usr/share/doc/zabbix-proxy-mysql-1.8.16/create/data/data.sql  
-$ mysql -u zabbix_proxy -h HOST zabbix_proxy -p PASSWORD < /usr/share/doc/zabbix-proxy-mysql-1.8.16/create/data/images_mysql.sql  
+$ mysql -u zabbix_proxy -h HOST zabbix_proxy -pPASSWORD < /usr/share/doc/zabbix-proxy-mysql-1.8.16/create/schema/mysql.sql  
+$ mysql -u zabbix_proxy -h HOST zabbix_proxy -pPASSWORD < /usr/share/doc/zabbix-proxy-mysql-1.8.16/create/data/data.sql  
+$ mysql -u zabbix_proxy -h HOST zabbix_proxy -pPASSWORD < /usr/share/doc/zabbix-proxy-mysql-1.8.16/create/data/images_mysql.sql  
 ```
 
 ### zabbix-proxyの設定
