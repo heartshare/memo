@@ -49,7 +49,10 @@ DBSocket=/var/lib/mysql/mysql.sock
 
 ## ZABBIXのGUIにて
 
+
 設定 => 分散監視 => プルダウンからプロキシ  
+
+![https://dl.dropbox.com/u/5390179/5f5fc35ea7323650935914ac505e856b.png](https://dl.dropbox.com/u/5390179/5f5fc35ea7323650935914ac505e856b.png)  
 
 選んでよしなに設定
 
