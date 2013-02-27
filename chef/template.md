@@ -1,3 +1,7 @@
+Template
+
+
+```
 ### hoge/template/default/hoge.conf.erb
 
 <% node[:hoo][:one].keys.sort.each do |oneone| %>
@@ -17,7 +21,7 @@
 <% else %>
  hogehoge
 <% end %>
-
+```
 
 
 ### redis
