@@ -1,6 +1,14 @@
 # 忘れがちなコマンドたち
 
-## フォーマット
+## git commit author
+
+`git commit --author="NAME <MAILADDR>" -v -m`
+
+"NAME <MAILADDR>" じゃないとエラーになる
+
+
+
+## ext4 format
 
 ```bash
 $ fdisk /dev/hoge
