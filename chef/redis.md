@@ -1,6 +1,7 @@
 ### redis
 
 ```json
+### json
 {
     "redis": {
      "ports": [
@@ -13,7 +14,9 @@
 }
 ```
 
-```recipe
+```rb
+### recipe
+
   template "/etc/redis/#{port}.conf" do
     owner "root"
     mode  0755
@@ -28,7 +31,9 @@
 end
 ```
 
-```template
+```erb
+### template
+
 port <%= @port %>
 pidfile /var/run/redis_<%= @port %>.pid
 
