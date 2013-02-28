@@ -8,7 +8,6 @@ ARRAY /dev/md0 devices=/dev/xvdc,/dev/xvdd
 Filesystem           1K-blocks      Used Available Use% Mounted on
 /dev/xvda1            20642428   5448068  14984936  27% /
 tmpfs                  3816932         0   3816932   0% /dev/shm
-/dev/xvdb1            41279536    180720  39001936   1% /data
 /dev/xvdc            433455904    203012 411234588   1% /media/ephemeral0
 /dev/xvdd            433455904    202880 411234720   1% /media/ephemeral1
 
