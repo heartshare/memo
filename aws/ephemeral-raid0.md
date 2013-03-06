@@ -42,8 +42,19 @@ unused devices: <none>
 ```
 #!/bin/bash
 
-yes | mdadm --create /dev/md0 --level=0 --raid-devices=2 /dev/xvd[cd]
-mkfs.ext4 /dev/md0
-mount /dev/md0 /data/
+yes | mdadm --create /dev/md127 --level=0 --raid-devices=2 /dev/xvd[cd]
+mkfs.ext4 /dev/md127
+mount /dev/md127 /data/
 mkdir /data/redis/
+mkdir /etc/mdadm/
 ```
+
+  <store>
+    type parser
+    format ltsv
+    key_name message
+    add_prefix parsed
+  </store>
+</match>
+
+<match parsed.nginx.access.**>
