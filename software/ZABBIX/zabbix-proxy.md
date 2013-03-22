@@ -17,7 +17,7 @@
 ### インストール
 
 ```
-$ install yum zabbix zabbix-proxy zabbix-proxy-mysql  
+$ yum install zabbix zabbix-proxy zabbix-proxy-mysql  
   
 $ mysql  
 mysql> CREATE DATABASE zabbix_proxy DEFAULT CHARACTER SET utf8;  
