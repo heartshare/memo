@@ -17,16 +17,16 @@ COUNT=1
 
 while [ ${COUNT} -ge 1 ];
 do
-        cat dummy-1G.img >> kvm-image.img
-            echo "$COUNT"
-                sleep 30
-                    COUNT=`expr ${COUNT} - 1`
-                    done
-                    ```
+    cat dummy-1G.img >> kvm-image.img
+    echo "$COUNT"
+    sleep 30
+    COUNT=`expr ${COUNT} - 1`
+done
+```
 
-                    `$ sh -x hoge.sh`   
-                    `$ ls -ls kvm-image.img`   
-                    `$ ls -lh kvm-image.img`
+`$ sh -x hoge.sh`  
+`$ ls -ls kvm-image.img`  
+`$ ls -lh kvm-image.img`
 
 ### パーティションテーブルの再構築
 
@@ -42,7 +42,7 @@ fdisk /dev/拡張領域
   w
 
   正しい情報になっていることを確認して
-  ```
+```
 
 ### 反映する
 

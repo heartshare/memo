@@ -51,3 +51,10 @@ zC 全部閉じる
 ## ページインページアウト 
 
 `cat /proc/PID/stat | cut -d" " -f2,10,12`
+
+## dovecotのパスワードをftpasswdでつくる
+
+`ftpasswd --passwd --name hoge@example.com --uid UID -gid GID --home /home/dovecot --shell /sbin/nologin --file /etc/dovecot/dovecot.passwd`
+```
+hoge@example.com:PASS:UID:GID::/home/dovecot:/sbin/nologin
+```
