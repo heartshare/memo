@@ -1,6 +1,6 @@
 ## ALTER
 
-### CREATE TABLE
+### CREATE COLUMN
 
 `CREATE TABLE table column type;`  
 
@@ -23,7 +23,7 @@ mysql> DESC hoge;
 mysql>
 ```
 
-### TABLE ADD
+### COLUMN ADD
 
 `ALTER TABLE table ADD column type;`
 
@@ -79,7 +79,7 @@ mysql> DESC hoge;
 mysql>
 ```
 
-### TABLE UPDATE
+### COLUMN UPDATE
 
 `ALTER TABLE table CHANGE old_column new_column type;`  
 
@@ -144,7 +144,7 @@ mysql>
 ```
 
 
-### TABLE DELETE
+### COLUMN DELETE
 
 - `last_name` column delete
 
