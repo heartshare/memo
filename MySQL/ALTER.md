@@ -4,7 +4,7 @@
 
 `CREATE TABLE table column type;`  
 
-- create name column
+- create `name` column
 
 ```
 mysql>
@@ -27,7 +27,7 @@ mysql>
 
 `ALTER TABLE table ADD column type;`
 
-- add last_name column
+- add `last_name` column
 
 ```
 mysql>
@@ -57,7 +57,7 @@ mysql> DESC hoge;
 mysql>
 ```
 
-- add address column
+- add `address` column
 
 ```
 mysql>
