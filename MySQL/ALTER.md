@@ -113,46 +113,6 @@ mysql>
 
 #### `ALTER TABLE table CHANGE old_column new_column type;`  
 
-- type change `name` column
-
-```
-mysql>
-mysql> ALTER TABLE hoge CHANGE name name VARCHAR(10);
-Query OK, 0 rows affected (0.00 sec)
-Records: 0  Duplicates: 0  Warnings: 0
-
-mysql>
-mysql> DESC hoge;
-+-------+-------------+------+-----+---------+-------+
-| Field | Type        | Null | Key | Default | Extra |
-+-------+-------------+------+-----+---------+-------+
-| name  | varchar(10) | YES  |     | NULL    |       |
-+-------+-------------+------+-----+---------+-------+
-1 row in set (0.10 sec)
-```
-
-
-- `name` column change NOT NULL
-
-```
-mysql>
-mysql> ALTER TABLE hoge CHANGE name name VARCHAR(10) NOT NULL;
-Query OK, 0 rows affected (0.03 sec)
-Records: 0  Duplicates: 0  Warnings: 0
-
-mysql>
-mysql> DESC hoge;
-+-------+-------------+------+-----+---------+-------+
-| Field | Type        | Null | Key | Default | Extra |
-+-------+-------------+------+-----+---------+-------+
-| name  | varchar(10) | NO   |     | NULL    |       |
-+-------+-------------+------+-----+---------+-------+
-1 row in set (0.00 sec)
-
-mysql>
-```
-
-
 - `name` column change to `first_name`
 
 ```
