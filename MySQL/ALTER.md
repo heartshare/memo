@@ -2,7 +2,7 @@
 
 ### CREATE COLUMN
 
-`CREATE TABLE table column type;`  
+#### `CREATE TABLE table column type;`  
 
 - create `name` column
 
@@ -25,7 +25,7 @@ mysql>
 
 ### COLUMN ADD
 
-`ALTER TABLE table ADD column type;`
+#### `ALTER TABLE table ADD column type;`
 
 - add `last_name` column
 
@@ -81,7 +81,7 @@ mysql>
 
 ### COLUMN UPDATE
 
-`ALTER TABLE table MODIFY colum type;`  
+#### `ALTER TABLE table MODIFY colum type;`  
 
 - type change `homhom` column
 
@@ -111,7 +111,7 @@ mysql> DESC hoge;
 mysql>
 ```
 
-`ALTER TABLE table CHANGE old_column new_column type;`  
+#### `ALTER TABLE table CHANGE old_column new_column type;`  
 
 - type change `name` column
 
@@ -178,7 +178,7 @@ mysql>
 
 - `last_name` column delete
 
-` ALTER TABLE table DROP column;`
+#### ` ALTER TABLE table DROP column;`
 
 ```
 mysql>
