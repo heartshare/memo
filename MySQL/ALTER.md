@@ -83,7 +83,7 @@ mysql>
 
 #### `ALTER TABLE table MODIFY colum type;`  
 
-`MODIFY` is column name *not rename* column type update.
+`MODIFY` is column **not rename** column type update.
 
 - type change `homhom` column
 
@@ -115,7 +115,7 @@ mysql>
 
 #### `ALTER TABLE table CHANGE old_column new_column type;`  
 
-`CHANGE` is column name *rename and* column type update.
+`CHANGE` is column **rename and** column type update.
 
 
 - `name` column change to `first_name`
