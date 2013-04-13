@@ -174,3 +174,51 @@ mysql> DESC hoge;
 
 mysql>
 ```
+
+
+### INDEX
+
+### SHOW INDEX
+
+#### ` SHOW INDEX FROM table;`
+
+### CREATE INDEX
+
+#### `ALTER TABLE table ADD INDEX index_name(column);`
+
+### CREATE INDEX AT CREATE TABLE
+
+#### `CREATE TABLE table ( column VARCHAR(191), INDEX index_name (column) );`
+
+```
+mysql> CREATE TABLE test (id INT AUTO_INCREMENT, INDEX index_name (id));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql>
+mysql>
+mysql> SHOW CREATE TABLE test;
++-------+------------------------------------------------------------------------------------------------------------------------------+
+| Table | Create Table                                                                                                                 |
+|+-------+-----------------------------------------------------------------------------------------------------------------------------+
+| test  | CREATE TABLE `test` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  KEY `index_name` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 |
++-------+------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql>
+mysql> SHOW INDEX FROM test;
++-------+------------+------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| Table | Non_unique | Key_name   | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment |
++-------+------------+------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| test  |          1 | index_name |            1 | id          | A         |           0 |     NULL | NULL   |      | BTREE      |         |               |
++-------+------------+------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+1 row in set (0.01 sec)
+
+mysql>
+```
+
+### DROP INDEX
+
+#### `DROP INDEX index_name ON table;`

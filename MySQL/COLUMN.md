@@ -18,6 +18,131 @@ mysql>
 mysql>
 ```
 
+### ORDER BY
+
+#### NORMAL or ASC
+
+```
+mysql>
+mysql> mysql> SELECT name, number FROM homhom ORDER BY number;
++----------+--------+
+| name     | number |
++----------+--------+
+| akemi    |    998 |
+| homura   |    999 |
+| akemi    |   1000 |
+| homuhomu |   1000 |
+| homura   |   1000 |
+| akemi    |   1000 |
+| homuhomu |   1000 |
+| homura   |   1000 |
+| akemi    |   1000 |
+| homuhomu |   1000 |
+| homura   |   1000 |
+| homura   |   1000 |
+| akemi    |   1000 |
+| homuhomu |   1000 |
+| homu     |   1001 |
+| homu     |   1001 |
+| homu     |   1001 |
+| homu     |   1001 |
+| homu     |   1001 |
+| homuhomu |   1003 |
++----------+--------+
+20 rows in set (0.00 sec)
+
+mysql>
+```
+
+#### DESC
+
+```
+mysql>
+mysql> SELECT name, number FROM homhom ORDER BY number DESC;
++----------+--------+
+| name     | number |
++----------+--------+
+| homuhomu |   1003 |
+| homu     |   1001 |
+| homu     |   1001 |
+| homu     |   1001 |
+| homu     |   1001 |
+| homu     |   1001 |
+| akemi    |   1000 |
+| homura   |   1000 |
+| homuhomu |   1000 |
+| homuhomu |   1000 |
+| homura   |   1000 |
+| homura   |   1000 |
+| homuhomu |   1000 |
+| akemi    |   1000 |
+| homura   |   1000 |
+| homuhomu |   1000 |
+| akemi    |   1000 |
+| akemi    |   1000 |
+| homura   |    999 |
+| akemi    |    998 |
++----------+--------+
+20 rows in set (0.00 sec)
+
+mysql>
+mysql>
+```
+
+### SELECT MAX
+
+#### `SELECT MAX(column) FROM table;`
+
+```
+mysql>
+mysql> SELECT MAX(number) FROM homhom;
++-------------+
+| MAX(number) |
++-------------+
+|        1002 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql>
+mysql>
+mysql> SELECT name FROM homhom WHERE number = (SELECT MAX(number) FROM homhom);
++-------+
+| name  |
++-------+
+| akemi |
++-------+
+1 row in set (0.00 sec)
+
+mysql>
+```
+
+```
+mysql>
+mysql> SELECT name FROM homhom WHERE number = (SELECT number FROM homhom WHERE number = '1000');
+ERROR 1242 (21000): Subquery returns more than 1 row
+mysql>
+mysql> SELECT number FROM homhom WHERE number = '1000';
++--------+
+| number |
++--------+
+|   1000 |
+|   1000 |
++--------+
+2 rows in set (0.01 sec)
+
+mysql>
+mysql> SELECT name FROM homhom WHERE number = (SELECT number FROM homhom WHERE number = '1000' GROUP BY number);
++----------+
+| name     |
++----------+
+| homura   |
+| homuhomu |
++----------+
+2 rows in set (0.00 sec)
+
+mysql>
+```
+
 ### INSERT INTO
 
 #### `INSERT INTO table (column) VALUE ('data');`
