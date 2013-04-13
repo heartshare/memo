@@ -71,6 +71,11 @@ mysql> SELECT * FROM homhom;
 mysql>
 ```
 
+#### BULK INSERT
+
+`INSERT INTO table (column_one, column_two) VALUE ('data_one','data_two'),('data_one','data_two')...;`
+
+
 ### UPDATE
 
 #### `UPDATE table SET column = 'data' WHERE column = hoge;`
