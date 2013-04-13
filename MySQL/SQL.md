@@ -1,23 +1,5 @@
 ## COLUMN
 
-### SAMPLE TABLE
-
-```
-mysql>
-mysql> DESC homhom;
-+--------+---------------------+------+-----+---------------------+-------+
-| Field  | Type                | Null | Key | Default             | Extra |
-+--------+---------------------+------+-----+---------------------+-------+
-| name   | varchar(191)        | YES  |     | NULL                |       |
-| number | bigint(20) unsigned | YES  |     | NULL                |       |
-| date   | timestamp           | NO   |     | 0000-00-00 00:00:00 |       |
-+--------+---------------------+------+-----+---------------------+-------+
-3 rows in set (0.00 sec)
-
-mysql>
-mysql>
-```
-
 ### SELECT
 
 #### `SELECT column FROM table;`
