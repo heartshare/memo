@@ -210,7 +210,7 @@ mysql>`
 ### SELECT WHERE IN
 
 
-#### `SELECT colum FROM table WHERE colum IN (date,date)`
+#### `SELECT column FROM table WHERE column IN (date,date)`
 
 ```
 mysql>
@@ -249,7 +249,7 @@ mysql>
 
 ### HAVING
 
-#### `SELECT colum FROM table GROUP BY colum HAVING colum = date `
+#### `SELECT column FROM table GROUP BY column HAVING column = date `
 
 `GROUP BY`された後のデータに対してフィルタをかける
 
@@ -880,7 +880,7 @@ mysql>
 
 ### COLUMN UPDATE
 
-#### `ALTER TABLE table MODIFY colum type;`  
+#### `ALTER TABLE table MODIFY column type;`
 
 `MODIFY` is column **not rename** column type update.
 
