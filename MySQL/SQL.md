@@ -1,8 +1,8 @@
-## COLUMN
+## N
 
 ### SELECT
 
-#### `SELECT column FROM table;`
+#### `SELECT n FROM table;`
 
 ```
 mysql>
@@ -64,7 +64,7 @@ mysql>
 
 ### ORDER BY
 
-#### `SELECT column FROM table ORDER BY column;`
+#### `SELECT n FROM table ORDER BY column;`
 
 ##### NORMAL or ASC
 
@@ -137,7 +137,7 @@ mysql>
 
 ### SELECT MAX
 
-#### `SELECT MAX(column) FROM table;`
+#### `SELECT MAX(n) FROM table;`
 
 ```
 mysql>
@@ -191,7 +191,7 @@ mysql>
 
 ### SELECT AVERAGE
 
-#### `SELECT AVG(column) FROM table;`
+#### `SELECT AVG(n) FROM table;`
 
 ```
 mysql>
@@ -210,7 +210,7 @@ mysql>`
 ### SELECT WHERE IN
 
 
-#### `SELECT colum FROM table WHERE colum IN (date,date)`
+#### `SELECT  FROM table WHERE colmun IN (date,date)`
 
 ```
 mysql>
@@ -249,7 +249,7 @@ mysql>
 
 ### HAVING
 
-#### `SELECT colum FROM table GROUP BY colum HAVING colum = date `
+#### `SELECT  FROM table GROUP BY colmun HAVING colmun = date `
 
 `GROUP BY`された後のデータに対してフィルタをかける
 
@@ -399,7 +399,7 @@ mysql>
 
 ### INSERT INTO
 
-#### `INSERT INTO table (column) VALUE ('data');`
+#### `INSERT INTO table (n) VALUE ('data');`
 
 ```
 mysql> INSERT INTO homhom (name, number, date) VALUE ('akemi', '1000', '1999-12-31 01:00:00');
@@ -452,12 +452,12 @@ mysql>
 
 #### BULK INSERT
 
-`INSERT INTO table (column_one, column_two) VALUE ('data_one','data_two'),('data_one','data_two')...;`
+`INSERT INTO table (n_one, column_two) VALUE ('data_one','data_two'),('data_one','data_two')...;`
 
 
 ### UPDATE
 
-#### `UPDATE table SET column = 'data' WHERE column = hoge;`
+#### `UPDATE table SET n = 'data' WHERE column = hoge;`
 
 ```
 mysql>
@@ -539,7 +539,7 @@ mysql>
 
 ### DELETE
 
-`DELETE FROM table WHERE column = hoge;`
+`DELETE FROM table WHERE n = hoge;`
 
 ```
 mysql>
@@ -749,7 +749,7 @@ mysql>
 
 ```
 mysql>
-mysql> SELECT parent.id AS p_id, child.id AS c_id, name, nickname FROM parent INNER JOIN child ON parent.id = child.id WHERE parent.id = 200 OR parent.id = 210 OR child.id = 211;
+mysql> SELECT parent.id AS p_id, child.id AS c_id, parent.name, child.nickname FROM parent INNER JOIN child ON parent.id = child.id WHERE parent.id IN ('200', '210', '211');
 +------+------+------------------+----------+
 | p_id | c_id | name             | nickname |
 +------+------+------------------+----------+
@@ -799,11 +799,11 @@ mysql>
 
 ## TABLE
 
-### CREATE COLUMN
+### CREATE N
 
-#### `CREATE TABLE table column type;`  
+#### `CREATE TABLE table n type;`  
 
-- create `name` column
+- create `name` n
 
 ```
 mysql>
@@ -822,11 +822,11 @@ mysql> DESC hoge;
 mysql>
 ```
 
-### COLUMN ADD
+### N ADD
 
-#### `ALTER TABLE table ADD column type;`
+#### `ALTER TABLE table ADD n type;`
 
-- add `last_name` column
+- add `last_name` n
 
 ```
 mysql>
@@ -856,7 +856,7 @@ mysql> DESC hoge;
 mysql>
 ```
 
-- add `address` column
+- add `address` n
 
 ```
 mysql>
@@ -878,13 +878,13 @@ mysql> DESC hoge;
 mysql>
 ```
 
-### COLUMN UPDATE
+### N UPDATE
 
-#### `ALTER TABLE table MODIFY colum type;`  
+#### `ALTER TABLE table MODIFY  type;`  
 
-`MODIFY` is column **not rename** column type update.
+`MODIFY` is n **not rename** column type update.
 
-- type change `homhom` column
+- type change `homhom` n
 
 ```
 mysql> DESC hoge;
@@ -912,12 +912,12 @@ mysql> DESC hoge;
 mysql>
 ```
 
-#### `ALTER TABLE table CHANGE old_column new_column type;`  
+#### `ALTER TABLE table CHANGE old_n new_column type;`  
 
-`CHANGE` is column **rename and** column type update.
+`CHANGE` is n **rename and** column type update.
 
 
-- `name` column change to `first_name`
+- `name` n change to `first_name`
 
 ```
 mysql>
@@ -938,11 +938,11 @@ mysql>
 ```
 
 
-### COLUMN DELETE
+### N DELETE
 
-- `last_name` column delete
+- `last_name` n delete
 
-#### ` ALTER TABLE table DROP column;`
+#### ` ALTER TABLE table DROP n;`
 
 ```
 mysql>
@@ -983,11 +983,11 @@ mysql>
 
 ### CREATE INDEX
 
-#### `ALTER TABLE table ADD INDEX index_name(column);`
+#### `ALTER TABLE table ADD INDEX index_name(n);`
 
 ### CREATE INDEX AT CREATE TABLE
 
-#### `CREATE TABLE table ( column VARCHAR(191), INDEX index_name (column) );`
+#### `CREATE TABLE table ( n VARCHAR(191), INDEX index_name (column) );`
 
 ```
 mysql> CREATE TABLE test (id INT AUTO_INCREMENT, INDEX index_name (id));
@@ -1009,7 +1009,7 @@ mysql> SHOW CREATE TABLE test;
 mysql>
 mysql> SHOW INDEX FROM test;
 +-------+------------+------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
-| Table | Non_unique | Key_name   | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment |
+| Table | Non_unique | Key_name   | Seq_in_index | n_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment |
 +-------+------------+------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
 | test  |          1 | index_name |            1 | id          | A         |           0 |     NULL | NULL   |      | BTREE      |         |               |
 +-------+------------+------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
@@ -1027,7 +1027,7 @@ mysql>
 
 REFERENCES:[MySQL 5.1 リファレンスマニュアル :: 13 ストレージエンジンとテーブルタイプ :: 13.5 InnoDB ストレージ エンジン :: 13.5.6 InnoDB テーブルの作成と利用 :: 13.5.6.4 FOREIGN KEY 制約](http://dev.mysql.com/doc/refman/5.1/ja/innodb-foreign-key-constraints.html)
 
-#### CREATE TABLE AND COLUMN
+#### CREATE TABLE AND N
 
 ```
 CREATE TABLE parent (
@@ -1147,7 +1147,7 @@ mysql>
 
 ### FOREIGN KEY RESTRICT (NO ACTION same means)
 
-#### `ALTER TABLE table ADD CONSTRAINT foreign_key FOREIGN KEY (master_column) REFERENCES table(secondly_column) ON UPDATE RESTRICT ON DELETE RESTRICT;`
+#### `ALTER TABLE table ADD CONSTRAINT foreign_key FOREIGN KEY (master_n) REFERENCES table(secondly_column) ON UPDATE RESTRICT ON DELETE RESTRICT;`
 
 ```
 mysql>
@@ -1177,7 +1177,7 @@ mysql>
 
 ### FOREIGN KEY CASCADE
 
-#### `ALTER TABLE table ADD CONSTRAINT foreign_key FOREIGN KEY (master_column) REFERENCES table(secondly_column) ON UPDATE CASCADE ON DELETE CASCADE;`
+#### `ALTER TABLE table ADD CONSTRAINT foreign_key FOREIGN KEY (master_n) REFERENCES table(secondly_column) ON UPDATE CASCADE ON DELETE CASCADE;`
 
 ```
 mysql>
@@ -1256,7 +1256,7 @@ mysql>
 
 ### FOREIGN KEY SET NULL
 
-#### `ALTER TABLE table ADD CONSTRAINT foreign_key FOREIGN KEY (master_column) REFERENCES table(secondly_column) ON UPDATE SET NULL ON DELETE SET NULL;`
+#### `ALTER TABLE table ADD CONSTRAINT foreign_key FOREIGN KEY (master_n) REFERENCES table(secondly_column) ON UPDATE SET NULL ON DELETE SET NULL;`
 
 ```
 mysql>
