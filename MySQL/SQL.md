@@ -749,7 +749,7 @@ mysql>
 
 ```
 mysql>
-mysql> SELECT parent.id AS p_id, child.id AS c_id, name, nickname FROM parent INNER JOIN child ON parent.id = child.id WHERE parent.id = 200 OR parent.id = 210 OR child.id = 211;
+mysql> SELECT parent.id AS p_id, child.id AS c_id, parent.name, child.nickname FROM parent INNER JOIN child ON parent.id = child.id WHERE parent.id IN ('200', '210', '211');
 +------+------+------------------+----------+
 | p_id | c_id | name             | nickname |
 +------+------+------------------+----------+
@@ -767,7 +767,7 @@ mysql>
 
 ```
 mysql>
-mysql> SELECT parent.id AS p_id, child.id AS c_id, name, nickname FROM parent LEFT JOIN child ON parent.id = child.id WHERE parent.id = 200 OR parent.id = 210 OR child.id = 211;
+mysql> SELECT parent.id AS p_id, child.id AS c_id, parent.name, child.nickname FROM parent LEFT JOIN child ON parent.id = child.id WHERE parent.id IN ('200', '210', '211');
 +------+------+------------------+----------+
 | p_id | c_id | name             | nickname |
 +------+------+------------------+----------+
@@ -784,7 +784,7 @@ mysql>
 LEFTの逆。あんまり使わないらしい
 
 ```
-mysql> SELECT parent.id AS p_id, child.id AS c_id, name, nickname FROM parent RIGHT JOIN child ON parent.id = child.id WHERE parent.id = 200 OR parent.id = 210 OR child.id = 211;
+mysql> SELECT parent.id AS p_id, child.id AS c_id, parent.name, child.nickname FROM parent RIGHT JOIN child ON parent.id = child.id WHERE parent.id IN ('200', '210', '211');
 +------+------+------------------+-----------+
 | p_id | c_id | name             | nickname  |
 +------+------+------------------+-----------+
