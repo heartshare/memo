@@ -58,3 +58,9 @@ zC 全部閉じる
 ```
 hoge@example.com:PASS:UID:GID::/home/dovecot:/sbin/nologin
 ```
+
+
+## tmux
+
+アサインされているキーバインド一覧表示
+`:list-keys`
