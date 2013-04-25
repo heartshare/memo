@@ -8,3 +8,5 @@
 2. パラメータ設定変更する
 
 3. 対象のRDSのParameter Groupsを新しくつくって設定変えたParameter Groupsに変更
+
+Parameter Groups追加する時はRDS **再起動** が必要なので事前にやっておくこと
