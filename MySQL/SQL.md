@@ -66,7 +66,7 @@ mysql>
 
 #### `SELECT column FROM table ORDER BY column;`
 
-##### NORMAL or ASC
+##### ASC (Default)
 
 ```
 mysql>
