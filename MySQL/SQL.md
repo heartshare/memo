@@ -1,3 +1,232 @@
+## USER
+
+#### GRANT ALL PRIVILEGES ON database.table TO 'account'@'host' IDENTIFIED BY 'password' (WITH GRANT OPTION) ;
+
+GRANTでアカウントを作成した場合は、`FLUSH PRIVILEGES`は不要。  
+  
+```
+mysql>
+mysql> SELECT host,user FROM mysql.user;
++-----------------+---------------+
+| host            | user          |
++-----------------+---------------+
+| 127.0.0.1       | root          |
+| ::1             | root          |
+| localhost       |               |
+| localhost       | root          |
++-----------------+---------------+
+4 rows in set (0.02 sec)
+
+mysql>
+```
+
+#### GRANT * ON *.* TO 'account'@'host' IDENTIFIED BY 'password';
+
+```
+mysql>
+mysql> GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP ON *.* TO 'hage'@'localhost' IDENTIFIED BY 'obscure';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql>
+mysql> SELECT User,Host,Password FROM mysql.user WHERE User = 'hage';
++------+-----------+-------------------------------------------+
+| User | Host      | Password                                  |
++------+-----------+-------------------------------------------+
+| hage | localhost | *09E4D4C2617F3CB4CA5549F0E9C8D5B3B02DF720 |
++------+-----------+-------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql>
+```
+
+#### INSERT INTO user (Host,User,Password) VALUES('localhost','custom',PASSWORD('obscure'));
+
+```
+mysql>
+mysql> use mysql
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql>
+mysql> INSERT INTO user (Host,User,Password) VALUES('localhost','custom',PASSWORD('obscure'));
+Query OK, 1 row affected, 3 warnings (0.01 sec)
+
+mysql> SELECT User,Host,Password FROM user WHERE User = 'custom';
++--------+-----------+-------------------------------------------+
+| User   | Host      | Password                                  |
++--------+-----------+-------------------------------------------+
+| custom | localhost | *09E4D4C2617F3CB4CA5549F0E9C8D5B3B02DF720 |
++--------+-----------+-------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql>
+mysql> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql>
+```
+
+GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP ON *.* TO 'custom'@'localhost' IDENTIFIED BY 'obscure';
+
+
+
+#### WITH GRANT OPTION
+
+```
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'monty'@'localhost' IDENTIFIED BY 'some_pass' WITH GRANT OPTION;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql>
+
+% mysql -umonty -psome_pass                                                                                                                                                                                    [master ~/dev/memo/MySQL]
+Warning: Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 2
+Server version: 5.6.10-log Source distribution
+
+Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql>
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'monty2'@'localhost' IDENTIFIED BY 'some_pass';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql>
+
+
+
+% mysql -umonty2 -psome_pass                                                                                                                                                                                   [master ~/dev/memo/MySQL]
+Warning: Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 3
+Server version: 5.6.10-log Source distribution
+
+Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql>
+
+
+% mysql -umonty2 -psome_pass                                                                                                                                                                                   [master ~/dev/memo/MySQL]
+Warning: Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 3
+Server version: 5.6.10-log Source distribution
+
+Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql>
+mysql>
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'monty3'@'localhost' IDENTIFIED BY 'some_pass';
+ERROR 1045 (28000): Access denied for user 'monty2'@'localhost' (using password: YES)
+mysql>
+```
+
+#### SET PASSWORD
+
+```
+mysql> GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP ON *.* TO 'hage'@'localhost' IDENTIFIED BY 'obscure';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql>
+mysql> SELECT User,Host,Password FROM mysql.user WHERE User = 'hage';
++------+-----------+-------------------------------------------+
+| User | Host      | Password                                  |
++------+-----------+-------------------------------------------+
+| hage | localhost | *09E4D4C2617F3CB4CA5549F0E9C8D5B3B02DF720 |
++------+-----------+-------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql>
+mysql> SET PASSWORD 'hage'@'localhost' = password('hageteru');
+Query OK, 0 rows affected (0.00 sec)
+
+mysql>
+
+
+% mysql -uhage -phageteru                                                                                                                                                                                      [master ~/dev/memo/MySQL]
+Warning: Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 5
+Server version: 5.6.10-log Source distribution
+
+Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql>
+```
+
+```
+mysql>
+mysql> SET PASSWORD = PASSWORD('hagetenai');
+Query OK, 0 rows affected (0.00 sec)
+
+mysql>
+mysql> ^DBye
+['-']% mysql -uhage -phagetenai                                                                                                                                                                                     [master ~/dev/memo/MySQL]
+Warning: Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 7
+Server version: 5.6.10-log Source distribution
+
+Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql>
+```
+
+#### DROP USER
+
+```
+mysql>
+mysql> SELECT User,Host,Password FROM mysql.user WHERE User = 'hage';
++------+-----------+-------------------------------------------+
+| User | Host      | Password                                  |
++------+-----------+-------------------------------------------+
+| hage | localhost | *09E4D4C2617F3CB4CA5549F0E9C8D5B3B02DF720 |
++------+-----------+-------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql>
+mysql> DROP USER 'hage'@'localhost';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql>
+mysql> SELECT User,Host,Password FROM mysql.user WHERE User = 'hage';
+Empty set (0.00 sec)
+
+mysql>
+```
+
+
+
 ## COLUMN
 
 ### SELECT
@@ -796,6 +1025,65 @@ mysql> SELECT parent.id AS p_id, child.id AS c_id, parent.name, child.nickname F
 mysql>
 ```
 
+## DATABASE
+
+#### `CREATE DATABASE database DEFAULT CHARSET utf8`
+
+```
+mysql>
+mysql> CREATE DATABASE homho DEFAULT CHARACTER SET utf8;
+Query OK, 1 row affected (0.00 sec)
+
+mysql>
+mysql>
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| homhom             |
+| mysql              |
+| performance_schema |
+| test               |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql>
+mysql> SHOW CREATE DATABASE homho;
++----------+-----------------------------------------------------------------+
+| Database | Create Database                                                 |
++----------+-----------------------------------------------------------------+
+| homhom   | CREATE DATABASE `homhom` /*!40100 DEFAULT CHARACTER SET utf8 */ |
++----------+-----------------------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql>
+```
+
+#### `CREATE DATABASE database DEFAULT CHARACTER SET utf8mb4;`
+
+```
+mysql>
+mysql> CREATE DATABASE homhom_emoticon DEFAULT CHARACTER SET utf8mb4;
+Query OK, 1 row affected (0.01 sec)
+
+mysql>
+mysql>
+mysql> SHOW CREATE DATABASE homhom_emoticon;
++-----------------+-----------------------------------------------------------------------------+
+| Database        | Create Database                                                             |
++-----------------+-----------------------------------------------------------------------------+
+| homhom_emoticon | CREATE DATABASE `homhom_emoticon` /*!40100 DEFAULT CHARACTER SET utf8mb4 */ |
++-----------------+-----------------------------------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql>
+```
+
+4バイトUTF8の場合、InnoDBでは767バイトまでの長さのインデックスしかサポートしないので  
+767÷4=191文字となる点に注意。`text VARCHAR(191)`  
+
+参考: [MySQL 5.5新機能徹底解説 / 漢のコンピュータ道](http://nippondanji.blogspot.jp/2010/12/mysql-55.html)
 
 ## TABLE
 
