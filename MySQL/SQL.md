@@ -1,7 +1,5 @@
 ### TODO
 
-CHANGE MASTER TO
-
 ## USER
 
 #### GRANT ALL PRIVILEGES ON database.table TO 'account'@'host' IDENTIFIED BY 'password' (WITH GRANT OPTION) ;
