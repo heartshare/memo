@@ -1,3 +1,7 @@
+### TODO
+
+CHANGE MASTER TO
+
 ## USER
 
 #### GRANT ALL PRIVILEGES ON database.table TO 'account'@'host' IDENTIFIED BY 'password' (WITH GRANT OPTION) ;
@@ -287,6 +291,38 @@ mysql> SELECT name,number FROM homhom LIMIT 5;
 | akemi    |   1000 |
 +----------+--------+
 5 rows in set (0.00 sec)
+
+mysql>
+```
+
+### LIKE
+
+```
+mysql> SELECT name FROM homhom WHERE name LIKE '%hom%';
++----------+
+| name     |
++----------+
+| homura   |
+| homuhomu |
+| homu     |
+| homura   |
+| homuhomu |
+| homu     |
+| homura   |
+| homuhomu |
++----------+
+8 rows in set (0.01 sec)
+
+mysql>
+mysql> SELECT name FROM homhom WHERE name NOT LIKE '%hom%';
++-------+
+| name  |
++-------+
+| akemi |
+| akemi |
+| akemi |
++-------+
+3 rows in set (0.00 sec)
 
 mysql>
 ```
