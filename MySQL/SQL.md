@@ -81,7 +81,7 @@ Query OK, 0 rows affected (0.01 sec)
 
 mysql>
 
-% mysql -umonty -psome_pass                                                                                                                                                                                    [master ~/dev/memo/MySQL]
+% mysql -umonty -psome_pass
 Warning: Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 2
@@ -103,7 +103,7 @@ mysql>
 
 
 
-% mysql -umonty2 -psome_pass                                                                                                                                                                                   [master ~/dev/memo/MySQL]
+% mysql -umonty2 -psome_pass
 Warning: Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 3
@@ -120,7 +120,7 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 mysql>
 
 
-% mysql -umonty2 -psome_pass                                                                                                                                                                                   [master ~/dev/memo/MySQL]
+% mysql -umonty2 -psome_pass
 Warning: Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 3
@@ -163,7 +163,7 @@ Query OK, 0 rows affected (0.00 sec)
 mysql>
 
 
-% mysql -uhage -phageteru                                                                                                                                                                                      [master ~/dev/memo/MySQL]
+% mysql -uhage -phageteru
 Warning: Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 5
@@ -187,7 +187,7 @@ Query OK, 0 rows affected (0.00 sec)
 
 mysql>
 mysql> ^DBye
-['-']% mysql -uhage -phagetenai                                                                                                                                                                                     [master ~/dev/memo/MySQL]
+['-']% mysql -uhage -phagetenai
 Warning: Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 7
