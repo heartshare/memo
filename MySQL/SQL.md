@@ -1635,6 +1635,31 @@ mysql> SELECT id, parent_number FROM child WHERE id = '101';
 mysql>
 ```
 
+### REPLICATION
+
+
+```
+mysqlM> FLUSH TABLES WITH READ LOCK;
+mysqlM> SHOW MASTER STATUS; # memo
+$ mysqldump -u root -p --lock-all-tables --databases DBNAME > dumpfile
+mysql> UNLOCK TABLES;
+
+
+### create user
+mysqlM> CREATE USER 'repl'@'%.mydomain.com' IDENTIFIED BY 'slavepass';
+mysqlM> GRANT REPLICATION SLAVE ON *.* TO 'myslave'@'rep-slave' IDENTIFIED BY '53cr37';
+
+
+### start replication
+mysqlS> CHANGE MASTER TO
+       MASTER_HOST='master_host',
+       MASTER_USER='slave_user',
+       MASTER_PASSWORD='slave_password',
+       MASTER_LOG_FILE='mysqld-bin.000001',
+       MASTER_LOG_POS=255;
+
+mysqlS> CHANGE MASTER TO MASTER_HOST='master_host' MASTER_USER='slave_user' MASTER_PASSWORD='slave_password' MASTER_LOG_FILE='mysqld-bin.000001' MASTER_LOG_POS=255;
+```
 
 
 ### EXPLAIN
