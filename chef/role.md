@@ -42,3 +42,16 @@ roleに共通の項目を記載して
   ]
 }
 ```
+
+### 最小限のrole設定
+
+`name` なくても動く
+
+```
+{
+  "name": "role_name",
+  "json_class": "Chef::Role",
+  "run_list": [ "recipe[hoge]" ],
+  "chef_type": "role"
+}
+```
