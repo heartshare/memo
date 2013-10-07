@@ -114,5 +114,10 @@ VPCのサブネットを2つのAZに確保しておく
 
 ec2-create-snapshot -O ACCESS-KEY -W SECRET-KEY --region REGION(no -1a nad -2b) VOLUME-ID -d DESCRIPTIN
 
+---
+
+# CloudFront
+
+# url引数にバージョン付与して管理できるとアプリ削除する時に楽
 
 
