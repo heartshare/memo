@@ -118,6 +118,6 @@ ec2-create-snapshot -O ACCESS-KEY -W SECRET-KEY --region REGION(no -1a nad -2b) 
 
 # CloudFront
 
-# url引数にバージョン付与して管理できるとアプリ削除する時に楽
+url引数にバージョン付与して管理できるとアプリ削除する時に楽
 
 
